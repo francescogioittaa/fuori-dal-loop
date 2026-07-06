@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fuori dal loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #14161C;
+    --ink-2: #1E212B;
+    --ink-3: #262A36;
+    --bone: #ECE6D8;
+    --text: #EDEBE3;
+    --text-muted: #90929C;
+    --accent: #E2793D;
+    --accent-dark: #B85E2C;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--ink);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap{
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header.hero{
+    padding: 72px 0 32px;
+  }
+  .eyebrow{
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  h1{
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .sub{
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 46ch;
+  }
+  section{
+    padding: 32px 0;
+  }
+  .story-intro p{
+    font-size: 16px;
+    color: #C7C8D1;
+    margin-bottom: 16px;
+    max-width: 52ch;
+  }
+  .story-intro p:last-child{
+    margin-bottom: 0;
+  }
+  .video-frame{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    max-height: 640px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--ink-3);
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .video-frame iframe{
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    border: none;
+  }
+  .video-caption{
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 14px;
+  }
+  .pull-quote{
+    padding: 48px 0 8px;
+    text-align: center;
+  }
+  .pull-quote blockquote{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.35;
+    color: var(--text);
+    max-width: 40ch;
+    margin: 0 auto;
+  }
+  .pull-quote .quote-mark{
+    color: var(--accent);
+    font-size: 40px;
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Fraunces', serif;
+  }
+  .loop-section{
+    text-align: center;
+    padding: 48px 0;
+  }
+  .loop-graphic{
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 24px;
+  }
+  .loop-caption{
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 38ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .loop-caption strong{
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .bio-card{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: var(--ink-2);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 22px 24px;
+  }
+  .bio-photo{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--ink-3);
+    flex-shrink: 0;
+    border: 2px solid var(--accent);
+    background-size: cover;
+    background-position: center;
+  }
+  .bio-text p{
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .bio-text .bio-name{
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .form-section{
+    background: var(--bone);
+    color: #24211A;
+    border-radius: 20px;
+    padding: 44px 32px;
+    margin: 16px 0 8px;
+  }
+  .form-section h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    margin-bottom: 12px;
+    color: #24211A;
+  }
+  .form-section p.reassure{
+    font-size: 15px;
+    color: #565143;
+    margin-bottom: 16px;
+    max-width: 42ch;
+  }
+  .form-section p.reassure.second{
+    margin-bottom: 28px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  label{
+    font-size: 13px;
+    font-weight: 600;
+    color: #565143;
+  }
+  input[type="text"], input[type="tel"]{
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #D6CFBC;
+    background: #FBF9F4;
+    font-size: 16px;
+    font-family: inherit;
+    color: #24211A;
+  }
+  input[type="text"]:focus, input[type="tel"]:focus{
+    outline: none;
+    border-color: var(--accent-dark);
+  }
+  button{
+    margin-top: 8px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: none;
+    background: var(--accent-dark);
+    color: #FBF9F4;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  button:hover{
+    background: #9E4E22;
+  }
+  .no-bot-note{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #6B6656;
+  }
+  #grazie{
+    display: none;
+  }
+  #grazie:target{
+    display: block;
+  }
+  #grazie:target ~ #form-default{
+    display: none;
+  }
+  .thanks-box{
+    text-align: center;
+    padding: 20px 0;
+  }
+  .thanks-box h2{
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .signoff{
+    text-align: center;
+    padding: 24px 0 8px;
+  }
+  .signoff p{
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text-muted);
+  }
+  footer{
+    text-align: center;
+    padding: 24px 0 56px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Continua da dove i video si fermano</div>
+    <h1>Il pezzo di storia che nei reel non c'entra.</h1>
+    <p class="sub">Se sei arrivato qui da un video, sai già come inizia. Qui trovi il resto.</p>
+  </header>
+
+  <section class="story-intro">
+    <p>Per mesi ho fatto finta che andasse tutto bene, perché sulla carta non mancava niente: buoni voti, una famiglia, degli amici. Quello che non si vedeva da fuori era il vuoto che mi portavo dietro ogni sera, e la vergogna di sentirmi così senza saperne il motivo.</p>
+    <p>Non ho mai raccontato questa parte per intero — nemmeno alle persone più vicine a me. La racconto qui, senza tagli, perché se ti ci riconosci anche solo un po', voglio che tu sappia che non sei l'unico a sentirti così.</p>
+  </section>
+
+  <section>
+    <div class="video-frame">
+      <!-- Sostituisci YOUTUBE_VIDEO_ID con l'ID del tuo video non in elenco -->
+      <iframe src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID" title="Video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <p class="video-caption">5-6 minuti. Puoi metterlo in pausa quando vuoi.</p>
+  </section>
+
+  <section class="pull-quote">
+    <blockquote>
+      <span class="quote-mark">&ldquo;</span>
+      Non significa che c'è qualcosa che non va in te. Significa solo che forse non hai ancora trovato la tua direzione.
+    </blockquote>
+  </section>
+
+  <section class="loop-section">
+    <svg class="loop-graphic" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Un cerchio tratteggiato che si interrompe e diventa una linea diritta">
+      <circle cx="110" cy="110" r="70" fill="none" stroke="#3A3E4A" stroke-width="2.5" stroke-dasharray="6 8" stroke-dashoffset="0" transform="rotate(-90 110 110)" stroke-linecap="round" pathLength="100"></circle>
+      <path d="M 110 40 A 70 70 0 1 1 65 172" fill="none" stroke="#3A3E4A" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round"></path>
+      <path d="M 65 172 L 165 155" fill="none" stroke="#E2793D" stroke-width="3" stroke-linecap="round"></path>
+      <circle cx="165" cy="155" r="4.5" fill="#E2793D"></circle>
+    </svg>
+    <p class="loop-caption">
+      <strong>Lo stesso giorno, ripetuto.</strong>
+      Poi una sera, senza nessun piano, qualcosa si è rotto — ed è stata la prima cosa che ho scelto davvero per me.
+    </p>
+  </section>
+
+  <section>
+    <div class="bio-card">
+      <!-- Sostituisci l'URL nello style con la tua foto -->
+      <div class="bio-photo" style="background-image: url('LA_TUA_FOTO_URL');"></div>
+      <div class="bio-text">
+        <p class="bio-name">Kekko</p>
+        <p>18 anni, diplomato da poco. Non gestisco un team di persone che non conosco — se mi scrivi, rispondo io, di persona.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="form-default">
+    <div class="form-section">
+      <h2>Se ti sei riconosciuto</h2>
+      <p class="reassure">Non ti sto chiedendo di deciderti su niente. Ti sto solo chiedendo un modo per continuare la conversazione, con calma, senza pressione.</p>
+      <p class="reassure second">Lasciami nome e numero. Ti scrivo io, di persona, entro 48 ore — niente bot, niente automazioni.</p>
+
+      <!-- Sostituisci FORMSPREE_ID con l'ID del tuo form Formspree -->
+      <form action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+        <input type="hidden" name="_next" value="#grazie">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Come ti chiami" required>
+
+        <label for="telefono">Numero di telefono</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero WhatsApp" required>
+
+        <button type="submit">Scrivimi</button>
+      </form>
+
+      <div class="no-bot-note">
+        I tuoi dati restano privati. Nessuna lista, nessuna condivisione con terzi.
+      </div>
+    </div>
+  </section>
+
+  <section id="grazie">
+    <div class="form-section thanks-box">
+      <h2>Ricevuto.</h2>
+      <p class="reassure" style="margin:0 auto;">Ti scrivo entro 48 ore. Nel frattempo, se vuoi rivedere il video, puoi tornare su questa pagina quando vuoi.</p>
+    </div>
+  </section>
+
+  <div class="signoff">
+    <p>A presto,<br>Kekko</p>
+  </div>
+
+  <footer>
+    Questa pagina non raccoglie dati per terzi. Scritta e gestita direttamente, senza automazioni.
+  </footer>
+
+</div>
+
+</body>
+</html>
