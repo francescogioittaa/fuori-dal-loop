@@ -3,371 +3,522 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fuori dal loop</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Francesco Gioitta — Storie, direzione e primi passi</title>
+<meta name="description" content="18 anni, diplomato da poco. Racconto cosa succede davvero dopo la scuola: il vuoto, la direzione, i primi passi.">
+
+<!-- ============================================================
+     CONFIG RAPIDA — modifica solo questi valori per personalizzare
+     ============================================================ -->
+<script>
+  window.SITE_CONFIG = {
+    youtubeUrl: "https://youtu.be/u8imHYO3Qts", // <-- incolla qui il link del tuo video YouTube unlisted (es. https://www.youtube.com/watch?v=XXXXXXXXXXX)
+    formspreeEndpoint: "https://formspree.io/f/mykqoqoa", // <-- sostituisci con il tuo endpoint Formspree reale
+    socials: {
+      tiktokAccount1: "https://tiktok.com/@francescogioitta_",
+      instagram: "https://instagram.com/francescogioittaa",
+      tiktokAccount2: "https://tiktok.com/@ideedastudente",
+      tiktokAccount3: "https://tiktok.com/@aiemercati"
+    }
+  };
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
+
 <style>
-  :root{
-    --ink: #14161C;
-    --ink-2: #1E212B;
-    --ink-3: #262A36;
-    --bone: #ECE6D8;
-    --text: #EDEBE3;
-    --text-muted: #90929C;
-    --accent: #E2793D;
-    --accent-dark: #B85E2C;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background: var(--ink);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap{
-    max-width: 560px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  header.hero{
-    padding: 72px 0 32px;
-  }
-  .eyebrow{
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 18px;
-  }
-  h1{
-    font-family: 'Fraunces', serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    margin-bottom: 20px;
-  }
-  .sub{
-    font-size: 17px;
-    color: var(--text-muted);
-    max-width: 46ch;
-  }
-  section{
-    padding: 32px 0;
-  }
-  .story-intro p{
-    font-size: 16px;
-    color: #C7C8D1;
-    margin-bottom: 16px;
-    max-width: 52ch;
-  }
-  .story-intro p:last-child{
-    margin-bottom: 0;
-  }
-  .video-frame{
-    position: relative;
-    width: 100%;
-    aspect-ratio: 9/16;
-    max-height: 640px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    background: var(--ink-3);
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .video-frame iframe{
-    position: absolute;
-    top:0; left:0; width:100%; height:100%;
-    border: none;
-  }
-  .video-caption{
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 14px;
-  }
-  .pull-quote{
-    padding: 48px 0 8px;
-    text-align: center;
-  }
-  .pull-quote blockquote{
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 1.35;
-    color: var(--text);
-    max-width: 40ch;
-    margin: 0 auto;
-  }
-  .pull-quote .quote-mark{
-    color: var(--accent);
-    font-size: 40px;
-    line-height: 1;
-    display: block;
-    margin-bottom: 6px;
-    font-family: 'Fraunces', serif;
-  }
-  .loop-section{
-    text-align: center;
-    padding: 48px 0;
-  }
-  .loop-graphic{
-    width: 220px;
-    height: 220px;
-    margin: 0 auto 24px;
-  }
-  .loop-caption{
-    font-size: 15px;
-    color: var(--text-muted);
-    max-width: 38ch;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-  .loop-caption strong{
-    display: block;
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 20px;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-  .bio-card{
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    background: var(--ink-2);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 16px;
-    padding: 22px 24px;
-  }
-  .bio-photo{
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: var(--ink-3);
-    flex-shrink: 0;
-    border: 2px solid var(--accent);
-    background-size: cover;
-    background-position: center;
-  }
-  .bio-text p{
-    font-size: 14px;
-    color: var(--text-muted);
-    line-height: 1.55;
-  }
-  .bio-text .bio-name{
-    font-family: 'Fraunces', serif;
-    font-size: 17px;
-    color: var(--text);
-    margin-bottom: 4px;
-    font-weight: 500;
-  }
-  .form-section{
-    background: var(--bone);
-    color: #24211A;
-    border-radius: 20px;
-    padding: 44px 32px;
-    margin: 16px 0 8px;
-  }
-  .form-section h2{
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    font-size: 26px;
-    margin-bottom: 12px;
-    color: #24211A;
-  }
-  .form-section p.reassure{
-    font-size: 15px;
-    color: #565143;
-    margin-bottom: 16px;
-    max-width: 42ch;
-  }
-  .form-section p.reassure.second{
-    margin-bottom: 28px;
-  }
-  form{
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  label{
-    font-size: 13px;
-    font-weight: 600;
-    color: #565143;
-  }
-  input[type="text"], input[type="tel"]{
-    width: 100%;
-    padding: 14px 16px;
-    border-radius: 10px;
-    border: 1px solid #D6CFBC;
-    background: #FBF9F4;
-    font-size: 16px;
-    font-family: inherit;
-    color: #24211A;
-  }
-  input[type="text"]:focus, input[type="tel"]:focus{
-    outline: none;
-    border-color: var(--accent-dark);
-  }
-  button{
-    margin-top: 8px;
-    padding: 16px 20px;
-    border-radius: 10px;
-    border: none;
-    background: var(--accent-dark);
-    color: #FBF9F4;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: inherit;
-    cursor: pointer;
-  }
-  button:hover{
-    background: #9E4E22;
-  }
-  .no-bot-note{
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-top: 20px;
-    font-size: 13px;
-    color: #6B6656;
-  }
-  #grazie{
-    display: none;
-  }
-  #grazie:target{
-    display: block;
-  }
-  #grazie:target ~ #form-default{
-    display: none;
-  }
-  .thanks-box{
-    text-align: center;
-    padding: 20px 0;
-  }
-  .thanks-box h2{
-    font-family: 'Fraunces', serif;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  .signoff{
-    text-align: center;
-    padding: 24px 0 8px;
-  }
-  .signoff p{
-    font-family: 'Fraunces', serif;
-    font-style: italic;
-    font-size: 17px;
-    color: var(--text-muted);
-  }
-  footer{
-    text-align: center;
-    padding: 24px 0 56px;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
+  html { scroll-behavior: smooth; }
+  body { background:#FAF9F6; }
+  ::selection { background:#171717; color:#fff; }
+  .fade-up { opacity:0; transform:translateY(16px); animation:fadeUp .7s ease forwards; }
+  .fade-up.d1{animation-delay:.08s} .fade-up.d2{animation-delay:.16s} .fade-up.d3{animation-delay:.24s} .fade-up.d4{animation-delay:.32s}
+  @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;opacity:1;transform:none} html{scroll-behavior:auto} }
 </style>
 </head>
-<body>
 
-<div class="wrap">
+<body class="min-h-screen text-neutral-800 font-sans selection:bg-neutral-900 selection:text-white">
 
-  <header class="hero">
-    <div class="eyebrow">Continua da dove i video si fermano</div>
-    <h1>Il pezzo di storia che nei reel non c'entra.</h1>
-    <p class="sub">Se sei arrivato qui da un video, sai già come inizia. Qui trovi il resto.</p>
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-[#FAF9F6]/90 backdrop-blur border-b border-black/5">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center font-serif italic text-xs bg-white shadow-xs">FG</div>
+        <span class="font-serif italic font-medium text-neutral-900 tracking-tight text-base">francesco gioitta</span>
+      </a>
+      <nav class="hidden sm:flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-neutral-500">
+        <a href="#chi-sono" class="hover:text-neutral-900 transition-colors">Chi sono</a>
+        <a href="#video" class="hover:text-neutral-900 transition-colors">Il video</a>
+        <a href="#contatti" class="hover:text-neutral-900 transition-colors">Contatti</a>
+      </nav>
+      <a href="#contatti" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-neutral-900 text-white text-xs font-bold uppercase tracking-widest rounded-xl hover:bg-neutral-800 transition-all shadow-md">
+        Scrivimi
+      </a>
+    </div>
   </header>
 
-  <section class="story-intro">
-    <p>Per mesi ho fatto finta che andasse tutto bene, perché sulla carta non mancava niente: buoni voti, una famiglia, degli amici. Quello che non si vedeva da fuori era il vuoto che mi portavo dietro ogni sera, e la vergogna di sentirmi così senza saperne il motivo.</p>
-    <p>Non ho mai raccontato questa parte per intero — nemmeno alle persone più vicine a me. La racconto qui, senza tagli, perché se ti ci riconosci anche solo un po', voglio che tu sappia che non sei l'unico a sentirti così.</p>
-  </section>
+  <main id="top">
+    <!-- HERO -->
+    <section class="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden bg-[#FAF9F6] border-b border-black/5">
+      <div class="absolute top-10 left-1/3 w-[600px] h-[600px] bg-neutral-200/40 rounded-full blur-3xl -z-10"></div>
+      <div class="absolute bottom-10 right-10 w-[300px] h-[300px] bg-emerald-50 rounded-full blur-3xl opacity-40 -z-10"></div>
 
-  <section>
-    <div class="video-frame">
-      <!-- Sostituisci YOUTUBE_VIDEO_ID con l'ID del tuo video non in elenco -->
-      <iframe src="https://www.youtube.com/embed/u8imHYO3Qts" title="Video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    <p class="video-caption">3-4 minuti. Puoi metterlo in pausa quando vuoi.</p>
-  </section>
+      <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+        <!-- Left column -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left space-y-8">
+          <div class="fade-up inline-flex items-center gap-2 px-3.5 py-1.5 bg-white border border-black/5 rounded-full text-[11px] font-bold tracking-wider uppercase text-neutral-800 shadow-xs">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-emerald-500"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span class="text-neutral-500">📍 Italia</span>
+            <span class="w-1.5 h-1.5 bg-neutral-200 rounded-full"></span>
+            <span class="text-neutral-700">🎂 18 anni</span>
+          </div>
 
-  <section class="pull-quote">
-    <blockquote>
-      <span class="quote-mark">&ldquo;</span>
-      Non significa che c'è qualcosa che non va in te. Significa solo che forse non hai ancora trovato la tua direzione.
-    </blockquote>
-  </section>
+          <h1 class="fade-up d1 text-5xl sm:text-6xl lg:text-[72px] leading-[0.97] font-serif italic text-neutral-900 tracking-tight font-light">
+            Diplomato da poco,<br/>
+            ancora in cerca<br/>
+            <span class="text-emerald-700 font-serif italic font-medium">di una direzione.</span>
+          </h1>
 
-  <section class="loop-section">
-    <svg class="loop-graphic" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Un cerchio tratteggiato che si interrompe e diventa una linea diritta">
-      <circle cx="110" cy="110" r="70" fill="none" stroke="#3A3E4A" stroke-width="2.5" stroke-dasharray="6 8" stroke-dashoffset="0" transform="rotate(-90 110 110)" stroke-linecap="round" pathLength="100"></circle>
-      <path d="M 110 40 A 70 70 0 1 1 65 172" fill="none" stroke="#3A3E4A" stroke-width="2.5" stroke-dasharray="6 8" stroke-linecap="round"></path>
-      <path d="M 65 172 L 165 155" fill="none" stroke="#E2793D" stroke-width="3" stroke-linecap="round"></path>
-      <circle cx="165" cy="155" r="4.5" fill="#E2793D"></circle>
-    </svg>
-    <p class="loop-caption">
-      <strong>Lo stesso giorno, ripetuto.</strong>
-      Poi una sera, senza nessun piano, qualcosa si è rotto — ed è stata la prima cosa che ho scelto davvero per me.
-    </p>
-  </section>
+          <p class="fade-up d2 text-lg text-neutral-600 font-medium leading-relaxed max-w-md">
+            Racconto cosa succede davvero dopo il diploma — il vuoto, i dubbi, e come ho iniziato a costruirmi una direzione un giorno alla volta.
+          </p>
 
-  <section>
-    <div class="bio-card">
-      <!-- Sostituisci l'URL nello style con la tua foto -->
-      <div class="bio-photo" style="background-image: url('https://imgur.com/a/bcLfBF7');"></div>
-      <div class="bio-text">
-        <p class="bio-name">Kekko</p>
-        <p>18 anni, diplomato da poco. Non gestisco un team di persone che non conosco — se mi scrivi, rispondo io, di persona.</p>
+          <div class="fade-up d3 flex flex-wrap items-center gap-4 pt-2 w-full sm:w-auto">
+            <a href="#chi-sono" class="w-full sm:w-auto flex items-center justify-center gap-2 px-7 py-4 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-md hover:shadow-lg bg-emerald-700 hover:bg-emerald-800 group">
+              La mia storia
+              <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+            </a>
+            <a href="#video" class="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-4 bg-white border border-black/5 text-neutral-800 font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-neutral-50 hover:border-black/10 transition-all shadow-xs">
+              <div class="p-1 bg-emerald-50 rounded-lg text-neutral-900">
+                <svg class="w-3.5 h-3.5 fill-emerald-700" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              Guarda il video
+            </a>
+          </div>
+
+          <div class="fade-up d4 flex flex-wrap items-center gap-y-2 gap-x-6 pt-6 border-t border-black/5 text-xs text-neutral-400 font-semibold uppercase tracking-wider">
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Storytelling personale</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 10v2"/><circle cx="12" cy="12" r="9"/></svg>
+              <span>Guadagnare da studente</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              <span>AI &amp; mercati finanziari</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column - card -->
+        <div class="lg:col-span-5 flex justify-center items-center relative">
+          <div class="fade-up d2 relative w-full max-w-sm">
+            <div class="absolute inset-0 bg-neutral-900 rounded-[2rem] translate-x-3 translate-y-3 -z-10 opacity-5"></div>
+            <div class="bg-neutral-900 text-neutral-100 rounded-3xl border border-black p-6 shadow-2xl relative overflow-hidden text-xs">
+              <div class="flex items-center justify-between mb-6 border-b border-white/5 pb-3">
+                <div class="flex items-center gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-800"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-800"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-neutral-800"></div>
+                </div>
+                <div class="px-2.5 py-0.5 bg-neutral-800/60 rounded text-[10px] text-neutral-400 flex items-center gap-1 uppercase tracking-wider font-semibold">
+                  <span>francescogioitta.live</span>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div class="space-y-1">
+                  <span class="text-neutral-500 uppercase text-[10px] tracking-wider font-bold">// IL PERCORSO FINORA</span>
+                  <p class="text-sm font-serif italic text-neutral-200">Dal vuoto alla direzione</p>
+                </div>
+
+                <div class="p-4 bg-neutral-950/80 rounded-xl border border-white/5 space-y-3">
+                  <div class="flex items-center justify-between border-b border-white/5 pb-1.5">
+                    <span class="text-neutral-500 font-bold uppercase tracking-wider text-[10px]">PANORAMICA:</span>
+                    <svg class="w-3.5 h-3.5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.922-.755 1.688-1.54 1.118l-3.366-2.446a1 1 0 00-1.176 0l-3.367 2.446c-.784.57-1.838-.196-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.05 9.385c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.958z"/></svg>
+                  </div>
+                  <div class="grid grid-cols-3 gap-y-1.5 text-neutral-300 pt-1">
+                    <span class="text-neutral-500">Nome:</span>
+                    <span class="col-span-2 font-semibold text-white">Francesco</span>
+                    <span class="text-neutral-500">Status:</span>
+                    <span class="col-span-2 text-neutral-400 font-medium">Diplomato — 2 settimane fa</span>
+                    <span class="text-neutral-500">Fase:</span>
+                    <span class="col-span-2 flex items-center gap-1 text-emerald-400">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span>Costruzione direzione</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="space-y-2 pt-1">
+                  <div class="flex justify-between items-center text-[10px]">
+                    <span class="text-neutral-500 font-bold uppercase tracking-wider">// 3 TEMI CHE RACCONTO</span>
+                  </div>
+                  <div class="grid grid-cols-1 gap-1.5">
+                    <div class="flex items-center justify-between px-2.5 py-1.5 bg-neutral-950 rounded-lg border border-white/5">
+                      <span class="text-neutral-300 text-[11px]">Storytelling personale</span>
+                      <span class="text-emerald-400 text-[10px] font-mono">01</span>
+                    </div>
+                    <div class="flex items-center justify-between px-2.5 py-1.5 bg-neutral-950 rounded-lg border border-white/5">
+                      <span class="text-neutral-300 text-[11px]">Guadagnare da studente</span>
+                      <span class="text-emerald-400 text-[10px] font-mono">02</span>
+                    </div>
+                    <div class="flex items-center justify-between px-2.5 py-1.5 bg-neutral-950 rounded-lg border border-white/5">
+                      <span class="text-neutral-300 text-[11px]">AI &amp; mercati finanziari</span>
+                      <span class="text-emerald-400 text-[10px] font-mono">03</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="absolute bottom-3 right-3 p-2 bg-gradient-to-tr from-emerald-600 to-teal-700 rounded-lg shadow-lg text-white font-bold text-[10px] uppercase tracking-wider">
+                18 anni ✨
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHI SONO -->
+    <section id="chi-sono" class="py-24 bg-white relative scroll-mt-10 overflow-hidden border-b border-black/5">
+      <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-neutral-100 rounded-full blur-3xl opacity-40 -z-10"></div>
+
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col items-center text-center mb-16">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-black/5 text-neutral-800 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3">
+            <svg class="w-3 h-3 text-emerald-700" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.958a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.367 2.447a1 1 0 00-.363 1.118l1.287 3.957c.3.922-.755 1.688-1.54 1.118l-3.366-2.446a1 1 0 00-1.176 0l-3.367 2.446c-.784.57-1.838-.196-1.539-1.118l1.286-3.957a1 1 0 00-.363-1.118L2.05 9.385c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.286-3.958z"/></svg>
+            Chi Sono
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-serif italic font-light text-neutral-900 tracking-tight">La mia storia &amp; cosa trovi qui</h2>
+          <div class="w-16 h-px bg-black/10 mt-5"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <!-- Bio -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="bg-[#FAF9F6] border border-black/5 rounded-2xl p-6 sm:p-8 relative">
+              <svg class="absolute top-6 right-6 w-10 h-10 text-neutral-200/60 -z-0" fill="currentColor" viewBox="0 0 24 24"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+
+              <div class="space-y-5 text-neutral-600 leading-relaxed text-sm relative z-10 font-medium">
+                <p class="text-base text-neutral-800 font-semibold font-serif italic">
+                  Mi sono diplomato all'istituto tecnico due settimane fa. Da fuori sembrava tutto normale — scuola, giornate che andavano avanti. Dentro, per un periodo, mi sono sentito completamente perso.
+                </p>
+                <p>
+                  Non era la mancanza di risultati a pesarmi, era non avere una direzione. Ho riempito quel vuoto leggendo, studiando me stesso, costruendo amicizie anche fuori dalla mia città — e i primi soldi guadagnati da solo sono arrivati come conseguenza, non come punto di partenza.
+                </p>
+                <p>
+                  Oggi racconto questo percorso in pubblico, su tre fronti diversi: la mia storia personale, come si può guadagnare da studente senza mollare la scuola, e come sto imparando a usare l'intelligenza artificiale per studiare i mercati finanziari. Se ti ci ritrovi anche solo in una parte di questa storia, sei nel posto giusto.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Value cards -->
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            <div class="p-6 border border-black/5 bg-white rounded-2xl flex flex-col items-start gap-3 shadow-xs">
+              <div class="p-2 rounded-xl bg-emerald-50 text-emerald-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <h4 class="font-bold text-neutral-900 text-sm tracking-tight font-serif italic">Storia vera, non fuffa</h4>
+              <p class="text-xs text-neutral-500 leading-relaxed">
+                Ogni contenuto parte da qualcosa che ho vissuto davvero. Niente promesse di guadagni garantiti, niente scorciatoie inventate.
+              </p>
+            </div>
+
+            <div class="p-6 border border-black/5 bg-white rounded-2xl flex flex-col items-start gap-3 shadow-xs">
+              <div class="p-2 rounded-xl bg-emerald-50 text-emerald-700">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              </div>
+              <h4 class="font-bold text-neutral-900 text-sm tracking-tight font-serif italic">Tre temi, un solo percorso</h4>
+              <p class="text-xs text-neutral-500 leading-relaxed">
+                Storytelling personale, guadagnare da studente, AI applicata ai mercati — tre angoli della stessa direzione che sto costruendo.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="mt-16 max-w-3xl mx-auto">
+          <div class="space-y-8">
+            <div class="flex gap-5">
+              <div class="flex flex-col items-center">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1.5"></span>
+                <span class="w-px flex-1 bg-black/10 mt-1"></span>
+              </div>
+              <div class="pb-6">
+                <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider">Ultimo anno di scuola</span>
+                <h4 class="font-serif italic text-lg text-neutral-900 mt-1">Il vuoto prima del cambiamento</h4>
+                <p class="text-sm text-neutral-500 mt-1.5 leading-relaxed">Pomeriggi vuoti, dubbi sul futuro, la sensazione che il percorso tradizionale non mi avrebbe portato dove volevo. Ho iniziato a riempire quel vuoto con letture e crescita personale.</p>
+              </div>
+            </div>
+            <div class="flex gap-5">
+              <div class="flex flex-col items-center">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1.5"></span>
+                <span class="w-px flex-1 bg-black/10 mt-1"></span>
+              </div>
+              <div class="pb-6">
+                <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider">Giugno 2026</span>
+                <h4 class="font-serif italic text-lg text-neutral-900 mt-1">Il diploma, e un inizio vero</h4>
+                <p class="text-sm text-neutral-500 mt-1.5 leading-relaxed">Diploma all'istituto tecnico. Invece di aspettare che qualcosa cambiasse da solo, ho deciso di iniziare a costruire la mia direzione, un giorno alla volta.</p>
+              </div>
+            </div>
+            <div class="flex gap-5">
+              <div class="flex flex-col items-center">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 mt-1.5"></span>
+              </div>
+              <div>
+                <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider">Oggi</span>
+                <h4 class="font-serif italic text-lg text-neutral-900 mt-1">Racconto il percorso in pubblico</h4>
+                <p class="text-sm text-neutral-500 mt-1.5 leading-relaxed">Condivido storytelling personale, idee reali per guadagnare da studente e come sto imparando a usare l'AI sui mercati finanziari — sempre partendo da cose vissute davvero.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section id="video" class="py-24 bg-[#FAF9F6] border-b border-black/5 scroll-mt-10 relative">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-col items-center text-center mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-white text-neutral-800 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3 border border-black/5">
+            <svg class="w-3.5 h-3.5 text-neutral-400" fill="currentColor" viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6zm12-3c0 2.21-.24 4.14-1.12 5.19-.72.87-1.62.87-2.19.94-2.02.19-5.15.22-8.69.22s-6.67-.03-8.69-.22c-.57-.07-1.47-.07-2.19-.94C.24 16.14 0 14.21 0 12s.24-4.14 1.12-5.19c.72-.87 1.62-.87 2.19-.94C5.33 5.67 8.46 5.64 12 5.64s6.67.03 8.69.22c.57.07 1.47.07 2.19.94C22.76 7.86 22 9.79 22 12z"/></svg>
+            Il Video
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-serif italic font-light text-neutral-900 tracking-tight">Guarda la mia video presentazione</h2>
+          <p class="text-neutral-500 text-sm max-w-lg mt-3 leading-relaxed">
+            Ho girato questo video per raccontarmi meglio a voce e spiegarti perché ho iniziato a condividere questo percorso pubblicamente.
+          </p>
+        </div>
+
+        <div class="bg-white border border-black/5 p-3 sm:p-4 rounded-3xl shadow-xs relative">
+          <div class="aspect-video w-full rounded-2xl overflow-hidden bg-neutral-950 shadow-inner border border-black/5 relative flex items-center justify-center" id="video-container">
+            <div id="video-placeholder" class="p-8 text-center flex flex-col items-center justify-center max-w-md text-neutral-400 font-mono text-xs space-y-4">
+              <svg class="w-12 h-12 text-neutral-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              <div class="space-y-1.5">
+                <p class="text-neutral-300 font-bold">Video non ancora collegato</p>
+                <p class="leading-relaxed">Incolla il link del tuo video nel campo <strong>youtubeUrl</strong> in cima al file per farlo comparire qui.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-between mt-4 px-2 text-xs text-neutral-500 font-semibold gap-3 border-t border-black/5 pt-3">
+            <div class="flex items-center gap-2">
+              <span class="flex h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse"></span>
+              <span class="font-mono text-[11px] text-neutral-400">Video ospitato su YouTube</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti" class="py-24 bg-white relative scroll-mt-10 overflow-hidden border-b border-black/5">
+      <div class="absolute top-0 right-1/4 w-[450px] h-[450px] bg-emerald-50 rounded-full blur-3xl opacity-30 -z-10"></div>
+      <div class="absolute bottom-0 left-10 w-[300px] h-[300px] bg-neutral-100 rounded-full blur-3xl opacity-30 -z-10"></div>
+
+      <div class="max-w-xl mx-auto px-6">
+        <div class="flex flex-col items-center text-center mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-black/5 text-neutral-800 rounded-full text-[10px] font-bold uppercase tracking-widest mb-3">
+            <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Parliamone
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-serif italic font-light text-neutral-900 tracking-tight">Scrivimi due righe</h2>
+          <p class="text-neutral-500 text-sm max-w-md mt-3 leading-relaxed">
+            Se ti ritrovi in questa storia, o hai anche solo una domanda, lasciami un messaggio qui sotto. Rispondo personalmente, senza automatismi.
+          </p>
+        </div>
+
+        <div class="bg-white border border-black/5 rounded-3xl p-6 sm:p-8 shadow-xs relative">
+          <form id="contact-form" class="space-y-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-600 mb-2" for="name">Nome</label>
+              <input id="name" name="name" type="text" required
+                class="w-full px-4 py-3.5 bg-[#FAF9F6] border border-black/10 rounded-xl text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                placeholder="Come ti chiami">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-neutral-600 mb-2" for="phone">Numero di telefono</label>
+              <input id="phone" name="phone" type="tel" required
+                class="w-full px-4 py-3.5 bg-[#FAF9F6] border border-black/10 rounded-xl text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all"
+                placeholder="Il tuo numero di telefono">
+            </div>
+            <label class="flex items-start gap-2.5 text-xs text-neutral-500 leading-relaxed">
+              <input type="checkbox" required class="mt-0.5">
+              Acconsento al trattamento dei miei dati per essere ricontattato, secondo la
+              <button type="button" onclick="document.getElementById('privacy-modal').classList.remove('hidden')" class="underline hover:text-neutral-800">informativa privacy</button>.
+            </label>
+            <button type="submit"
+              class="w-full flex items-center justify-center gap-2 px-7 py-4 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-md hover:shadow-lg bg-emerald-700 hover:bg-emerald-800">
+              Invia messaggio
+            </button>
+          </form>
+          <div id="form-success" class="hidden text-center py-6 space-y-3">
+            <div class="w-12 h-12 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <p class="font-serif italic text-lg text-neutral-800">Messaggio inviato</p>
+            <p class="text-sm text-neutral-500">Grazie, ti rispondo appena possibile.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#121212] text-neutral-400 py-16 border-t border-white/5 font-sans">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start pb-12 border-b border-white/5">
+        <div class="col-span-1 md:col-span-5 space-y-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white font-serif italic text-xs bg-neutral-900 shadow-xs">FG</div>
+            <span class="font-serif italic font-medium text-white tracking-tight text-base">francesco gioitta</span>
+          </div>
+          <p class="text-sm text-neutral-500 leading-relaxed max-w-sm">
+            Spazio personale di un diciottenne diplomato da poco, che racconta il percorso dal vuoto post-scuola alla costruzione di una direzione — tra storytelling, primi guadagni da studente e AI applicata ai mercati.
+          </p>
+        </div>
+
+        <div class="col-span-1 md:col-span-4 space-y-4">
+          <h4 class="text-white font-serif italic text-base tracking-tight">Conformità &amp; Privacy</h4>
+          <div class="flex flex-col gap-2.5 text-xs uppercase tracking-wider font-semibold text-neutral-500">
+            <button onclick="document.getElementById('privacy-modal').classList.remove('hidden')" class="flex items-center gap-2 hover:text-white transition-colors text-left w-fit">
+              <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              Informativa sulla Privacy
+            </button>
+            <button onclick="document.getElementById('terms-modal').classList.remove('hidden')" class="flex items-center gap-2 hover:text-white transition-colors text-left w-fit">
+              <svg class="w-4 h-4 text-neutral-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              Note Legali &amp; Disclaimer
+            </button>
+          </div>
+        </div>
+
+        <div class="col-span-1 md:col-span-3 space-y-4">
+          <h4 class="text-white font-serif italic text-base tracking-tight">Trovami sui Social</h4>
+          <div class="flex flex-wrap items-center gap-3" id="social-links">
+            <!-- popolato via JS da SITE_CONFIG.socials -->
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4 text-xs text-neutral-600 font-semibold">
+        <div class="flex items-center gap-1">
+          <span>Fatto con</span>
+          <svg class="w-3.5 h-3.5 fill-emerald-600" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>a 18 anni. © <span id="year"></span></span>
+        </div>
+        <div class="text-center sm:text-right leading-relaxed text-[11px] text-neutral-600 max-w-sm">
+          I dati inviati tramite il form vengono utilizzati esclusivamente per essere ricontattato personalmente, in conformità con il GDPR.
+        </div>
       </div>
     </div>
-  </section>
-
-  <section id="form-default">
-    <div class="form-section">
-      <h2>Se ti sei riconosciuto</h2>
-      <p class="reassure">Non ti sto chiedendo di deciderti su niente. Ti sto solo chiedendo un modo per continuare la conversazione, con calma, senza pressione.</p>
-      <p class="reassure second">Lasciami nome e numero. Ti scrivo io, di persona, entro 48 ore — niente bot, niente automazioni.</p>
-
-      <!-- Sostituisci FORMSPREE_ID con l'ID del tuo form Formspree -->
-      <form action="https://formspree.io/f/mykqoqoa" method="POST">
-        <input type="hidden" name="_next" value="#grazie">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Come ti chiami" required>
-
-        <label for="telefono">Numero di telefono</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Il tuo numero WhatsApp" required>
-
-        <button type="submit">Scrivimi</button>
-      </form>
-
-      <div class="no-bot-note">
-        I tuoi dati restano privati. Nessuna lista, nessuna condivisione con terzi.
-      </div>
-    </div>
-  </section>
-
-  <section id="grazie">
-    <div class="form-section thanks-box">
-      <h2>Ricevuto.</h2>
-      <p class="reassure" style="margin:0 auto;">Ti scrivo entro 48 ore. Nel frattempo, se vuoi rivedere il video, puoi tornare su questa pagina quando vuoi.</p>
-    </div>
-  </section>
-
-  <div class="signoff">
-    <p>A presto,<br>Kekko</p>
-  </div>
-
-  <footer>
-    Questa pagina non raccoglie dati per terzi. Scritta e gestita direttamente, senza automazioni.
   </footer>
 
-</div>
+  <!-- PRIVACY MODAL -->
+  <div id="privacy-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-8 max-h-[80vh] overflow-y-auto">
+      <h3 class="font-serif italic text-2xl text-neutral-900 mb-4">Informativa sulla Privacy</h3>
+      <p class="text-sm text-neutral-600 leading-relaxed mb-3">I dati forniti tramite il modulo di contatto (nome, contatto, messaggio) vengono utilizzati esclusivamente per rispondere alla tua richiesta e non vengono condivisi con terze parti né usati per finalità di marketing automatizzato.</p>
+      <p class="text-sm text-neutral-600 leading-relaxed mb-3">Puoi richiedere in qualsiasi momento la cancellazione dei tuoi dati contattandomi direttamente.</p>
+      <button onclick="document.getElementById('privacy-modal').classList.add('hidden')" class="mt-4 px-5 py-2.5 bg-neutral-900 text-white text-xs font-bold uppercase tracking-widest rounded-xl">Chiudi</button>
+    </div>
+  </div>
+
+  <!-- TERMS MODAL -->
+  <div id="terms-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/50">
+    <div class="bg-white rounded-2xl max-w-lg w-full p-8 max-h-[80vh] overflow-y-auto">
+      <h3 class="font-serif italic text-2xl text-neutral-900 mb-4">Note Legali &amp; Disclaimer</h3>
+      <p class="text-sm text-neutral-600 leading-relaxed mb-3">I contenuti di questo sito e dei relativi canali social hanno finalità informativa ed esperienziale. Non costituiscono consulenza finanziaria, legale o di investimento.</p>
+      <p class="text-sm text-neutral-600 leading-relaxed mb-3">Qualsiasi riferimento a guadagni o risultati economici riflette esperienze personali e non rappresenta una garanzia di risultati futuri per chiunque altro.</p>
+      <button onclick="document.getElementById('terms-modal').classList.add('hidden')" class="mt-4 px-5 py-2.5 bg-neutral-900 text-white text-xs font-bold uppercase tracking-widest rounded-xl">Chiudi</button>
+    </div>
+  </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Video embed
+  (function() {
+    const url = window.SITE_CONFIG.youtubeUrl;
+    if (!url) return;
+    const match = url.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
+    const id = (match && match[2] && match[2].length === 11) ? match[2] : null;
+    if (!id) return;
+    const container = document.getElementById('video-container');
+    container.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="Video presentazione" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="w-full h-full border-0 absolute inset-0"></iframe>`;
+  })();
+
+  // Social icons
+  (function() {
+    const s = window.SITE_CONFIG.socials;
+    const wrap = document.getElementById('social-links');
+    const items = [
+      { url: s.tiktokAccount1, label: 'TikTok — Storie' },
+      { url: s.instagram, label: 'Instagram' },
+      { url: s.tiktokAccount2, label: 'TikTok — Guadagnare da studente' },
+      { url: s.tiktokAccount3, label: 'TikTok — AI & mercati' }
+    ];
+    items.forEach(item => {
+      if (!item.url) return;
+      const a = document.createElement('a');
+      a.href = item.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.title = item.label;
+      a.className = 'p-2.5 border border-white/5 bg-transparent hover:border-white/10 hover:bg-white/5 text-neutral-400 hover:text-white rounded-full transition-all shadow-xs';
+      a.innerHTML = '<svg class="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.62 2.89 2.89 0 0 1 2.31-4.51c.42 0 .82.1 1.17.27V9.5a6.33 6.33 0 0 0-1.17-.11 6.34 6.34 0 0 0-6.14 7.6 6.34 6.34 0 0 0 10.14 3.73 6.31 6.31 0 0 0 2.34-4.86V8.14a8.27 8.27 0 0 0 4.77 1.52V6.21a4.81 4.81 0 0 1-1.17-.15z"/></svg>';
+      wrap.appendChild(a);
+    });
+  })();
+
+  // Form submit via Formspree
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const endpoint = window.SITE_CONFIG.formspreeEndpoint;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Invio in corso...';
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.classList.add('hidden');
+        document.getElementById('form-success').classList.remove('hidden');
+      } else {
+        throw new Error('Invio fallito');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Invia messaggio';
+      alert('Qualcosa è andato storto. Riprova o scrivimi direttamente sui social.');
+    }
+  });
+</script>
 
 </body>
 </html>
